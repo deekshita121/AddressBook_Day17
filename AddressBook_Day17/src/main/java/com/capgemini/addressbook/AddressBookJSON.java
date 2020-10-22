@@ -8,14 +8,12 @@ import java.nio.file.Paths;
 import java.util.List;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 public class AddressBookJSON {
 
 	public int writeJSON(List<ContactDetails> contactDetailsList) throws IOException {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String json = gson.toJson(contactDetailsList);
+		String json = new Gson().toJson(contactDetailsList);
 		FileWriter writer = new FileWriter("AddressBookJson.json");
 		writer.write(json);
 		writer.close();
